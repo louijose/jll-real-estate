@@ -76,7 +76,6 @@
             "error",
             "never"
         ],
-
         "linebreak-style": ["error", "unix"],
         "react/prop-types": [
             2,
@@ -85,6 +84,8 @@
                     "history"
                 ]
             }
-        ]
+        ],
+        "jsx-a11y/label-has-for": 0,
+        "jsx-a11y/label-has-associated-control": 0
     }
 }

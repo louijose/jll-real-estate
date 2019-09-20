@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 
 import Login from "./views/gov/common/login";
-import AdminDashboard from "./views/gov/admin/dashboard"
+import AdminDashboard from "./views/gov/admin/dashboard";
 // import Employee from "./views/gov/employee"
 // import Agent from "./views/gov/agent"
 
@@ -16,6 +16,7 @@ const App = () => (
             <div>
                 {/* <Route exact path="/" component={withRouter(Home)} /> */}
                 <Route exact path="/" component={withRouter(AdminDashboard)} />
+                <Route exact path="/login" component={withRouter(Login)} />
             </div>
         </Router>
     </div>
@@ -24,6 +25,6 @@ const App = () => (
 export default App;
 
 ReactDOM.render(
-    <App />,
+    <App />, 
     document.getElementById("root")
 );

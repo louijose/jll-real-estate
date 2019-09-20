@@ -18,44 +18,87 @@ class AdminDashboard extends React.Component {
             agentPassword: "",
             employeeList: [],
             agentList: [],
-            userKYCList: []
+            userKYCList: [],
+            employeeData: <tr />,
+            agentData: <tr />,
+            userKYCData: <tr />
         };
-        // this.handleChangeId = this.handleChangeId.bind(this);
-        // this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleChangeEmployeeId = this.handleChangeEmployeeId.bind(this);
+        this.handleChangeEmployeePassword = this.handleChangeEmployeePassword.bind(this);
+        this.handleAddEmployee = this.handleAddEmployee.bind(this);
+        this.handleChangeAgentId = this.handleChangeAgentId.bind(this);
+        this.handleChangeAgentPassword = this.handleChangeAgentPassword.bind(this);
+        this.handleAddAgent = this.handleAddAgent.bind(this);
         // this.handleLogin = this.handleLogin.bind(this);
     }
 
-    // handleChangeId(event) {
-    //     this.setState({
-    //         id: event.target.value
-    //     });
-    // }
+    handleChangeEmployeeId(event) {
+        this.setState({
+            employeeId: event.target.value
+        });
+    }
 
-    // handleChangePassword(event) {
-    //     this.setState({
-    //         password: event.target.value
-    //     });
-    // }
+    handleChangeEmployeePassword(event) {
+        this.setState({
+            employeePassword: event.target.value
+        });
+    }
 
-    // handleLogin(event) {
-    //     event.preventDefault();
+    handleAddEmployee(event) {
+        event.preventDefault();
 
-    //     const body = {
-    //         id: this.state.id,
-    //         password: this.state.password
-    //     };
+        const body = {
+            employeeId: this.state.employeeId,
+            employeePassword: this.state.employeePassword
+        };
 
-    //     axios({
-    //         method: "post",
-    //         url: "/users/login",
-    //         data: body
-    //     }).then((res) => {
-    //         console.log(res.data);
-    //     }).catch((err) => {
-    //         console.log(err);
-    //         alert("ERROR");
-    //     });
-    // }
+        console.log(body);
+
+        // axios({
+        //     method: "post",
+        //     url: "/users/add",
+        //     data: body
+        // }).then((res) => {
+        //     console.log(res.data);
+        // }).catch((err) => {
+        //     console.log(err);
+        //     alert("ERROR");
+        // });
+    }
+
+    handleChangeAgentId(event) {
+        this.setState({
+            agentId: event.target.value
+        });
+    }
+
+    handleChangeAgentPassword(event) {
+        this.setState({
+            agentPassword: event.target.value
+        });
+    }
+
+    handleAddAgent(event) {
+        event.preventDefault();
+
+        const body = {
+            agentId: this.state.agentId,
+            agentPassword: this.state.agentPassword
+        };
+
+        console.log(body);
+
+        // axios({
+        //     method: "post",
+        //     url: "/users/add",
+        //     data: body
+        // }).then((res) => {
+        //     console.log(res.data);
+        // }).catch((err) => {
+        //     console.log(err);
+        //     alert("ERROR");
+        // });
+    }
 
     render() {
         return (
@@ -72,7 +115,7 @@ class AdminDashboard extends React.Component {
                         <br />
                         <label>
                             <i className="fas fa-key" />
-                            <input id="employeePassword" className="form-control" value={this.state.employeePassword} type="text" placeholder="Password" onChange={this.handleChangePassword} required />
+                            <input id="employeePassword" className="form-control" value={this.state.employeePassword} type="text" placeholder="Employee Password" onChange={this.handleChangeEmployeePassword} required />
                         </label>
                         <br />
                         <button id="addEmployeeButton" className="btn btn-success" type="submit">Add Employee</button>
@@ -87,7 +130,7 @@ class AdminDashboard extends React.Component {
                         <br />
                         <label>
                             <i className="fas fa-key" />
-                            <input id="agentPassword" className="form-control" value={this.state.agentPassword} type="text" placeholder="Password" onChange={this.handleChangeId} required />
+                            <input id="agentPassword" className="form-control" value={this.state.agentPassword} type="text" placeholder="Agent Password" onChange={this.handleChangeAgentPassword} required />
                         </label>
                         <br />
                         <button id="addAgentButton" className="btn btn-success" type="submit">Add Agent</button>
@@ -125,13 +168,13 @@ class AdminDashboard extends React.Component {
                     <table className="text-center table table-hover">
                         <thead>
                             <tr>
+                                <th className="text-center"><h4>User Id</h4></th>
                                 <th className="text-center"><h4>Agent Id</h4></th>
-                                <th className="text-center"><h4>Agent Password</h4></th>
-                                <th className="text-center"><h4>Agent Activity</h4></th>
+                                <th className="text-center"><h4>User Activity</h4></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.agentData}
+                            {this.state.userKYCData}
                         </tbody>
                     </table>
                     <br />
